@@ -17,9 +17,13 @@ module.exports = function(config) {
             'jasmine'
         ],
         browsers: [
-            'Chrome'
+            "Chrome"
         ],
         plugins: [
+            'karma-script-launcher',
+            'karma-junit-reporter',
+            'karma-chrome-launcher',
+            'karma-jasmine'
         ]
     });
 };

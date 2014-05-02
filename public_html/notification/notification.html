@@ -1,9 +1,13 @@
-<form class="lead form-inline" role="form" ng-submit="notifyMe()">
-    <div class="form-group">
-        <label class="sr-only" for="emailId">Email address</label>
-        <input id="emailId" type="email" class="form-control" placeholder="Enter email" ng-model="emailId">
-    </div>
-    <button id="notifyme" type="submit" class="btn btn-primary" >Notify Me!</button>
+<div class="inner cover">
+    <h1 class="cover-heading">Coming Summer 2014.</h1>
+    <p class="lead">Sharing your food is about to become much more fun.</p>
+    <form class="lead form-inline" role="form" ng-submit="notifyMe()">
+        <div class="form-group">
+            <label class="sr-only" for="emailId">Email address</label>
+            <input id="emailId" type="email" class="form-control" placeholder="Enter email" ng-model="emailId">
+        </div>
+        <button id="notifyme" type="submit" class="btn btn-primary" >Notify Me!</button>
 
-    <ul><li ng-repeat="e in emails">{{e.email}}</li></ul>
-</form>
+        <!--<ul><li ng-repeat="e in emails">{{e.email}}</li></ul>-->
+    </form>
+</div>

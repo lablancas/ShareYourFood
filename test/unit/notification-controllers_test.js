@@ -34,7 +34,7 @@ describe('Notification controllers', function() {
     it('should create "emails" model with 3 emails fetched from xhr', function() {
       expect(scope.emails).toEqualData([]);
       $httpBackend.flush();
-      expect(scope.phones).toEqualData(["lablancas@gmail.com", "yngonzalez@gmail.com", "lucas.blancas@hp.com"]);
+      expect(scope.emails).toEqualData(["lablancas@gmail.com", "yngonzalez@gmail.com", "lucas.blancas@hp.com"]);
     });
   });
 
