@@ -1,19 +1,26 @@
 {
-    "name": "My AngularJS Template",
+    "name": "Share Your Food",
     "version": "1.0.0",
     "author": "Lucas Blancas <lablancas@gmail.com>",
-    "description": "My AngularJS Template Description",
+    "description": "Sharing food is about to become much more fun",
     "repository": {
         "type": "git",
-        "url": "https://github.com/lablancas/AngularJsTemplate.git"
+        "url": "https://github.com/lablancas/ShareYourFood.git"
     },
     "dependencies": {
     },
     "devDependencies": {
-        "bootstrap" : "3.1.1",
-        "jquery" : "1.11.0",
-        "angular" : "1.3.0-beta.7",
-        "angular-resource" : "1.3.0-beta.7",
-        "angular-"
+        "karma": "~0.12.10",
+        "karma-chrome-launcher": "~0.1.3",
+        "karma-coffee-preprocessor": "~0.2.1",
+        "karma-coverage": "^0.2.1",
+        "karma-firefox-launcher": "~0.1.3",
+        "karma-html2js-preprocessor": "~0.1.0",
+        "karma-jasmine": "~0.1.5",
+        "karma-ng-html2js-preprocessor": "~0.1.0",
+        "karma-ng-scenario": "~0.1.0",
+        "karma-phantomjs-launcher": "~0.1.4",
+        "karma-requirejs": "~0.2.1",
+        "karma-script-launcher": "~0.1.0",
     }
 }
