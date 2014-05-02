@@ -1,0 +1,9 @@
+<form class="lead form-inline" role="form" ng-submit="notifyMe()">
+    <div class="form-group">
+        <label class="sr-only" for="emailId">Email address</label>
+        <input id="emailId" type="email" class="form-control" placeholder="Enter email" ng-model="emailId">
+    </div>
+    <button id="notifyme" type="submit" class="btn btn-primary" >Notify Me!</button>
+
+    <ul><li ng-repeat="e in emails">{{e.email}}</li></ul>
+</form>

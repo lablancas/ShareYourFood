@@ -4,7 +4,7 @@
  * Gmail: lablancas@gmail.com
  */
 
-angular.module('notification.controllers', [])
+angular.module('notification.controllers', ['notification.services'])
         .controller('NotificationController', ['$scope', 'Notification', function($scope, Notification) {
   $scope.emails = Notification.query();
   

@@ -4,4 +4,15 @@
  * Gmail: lablancas@gmail.com
  */
 
-angular.module('shareyourfood', ['notification.controllers', 'notification.services']);
+angular.module('shareyourfood', ['ngRoute', 'notification.controllers'])
+        .config(['$routeProvider',
+            function($routeProvider) {
+              $routeProvider.
+                when('/', {
+                  templateUrl: 'notification/notification.html',
+                  controller: 'NotificationController'
+                }).
+                otherwise({
+                  redirectTo: '/'
+                });
+  }]);
