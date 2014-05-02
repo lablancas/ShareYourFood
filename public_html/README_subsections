@@ -1,0 +1,38 @@
+Notes from Google AngularJS Best Practices:
+	Sub-sections represent structural "view" elements or routes within the app
+
+	Sub-sections
+	  > These top-level (or nested) directories contains only templates (.html, .css), controllers, and module definitions.  
+	  > We stamp out sub-level child sub-sections using the same unit template (i.e., a section is made up of templates, controllers, and module definitions), going deeper and deeper as needed to reflect the inheritance of elements in the UI.
+	  > For a very simple app, with just one controller, sub-section directories might not be needed, since everything is defined in the top-level files.
+	  > Sub-sections may or may not have their own modules, depending on how complex the code is.  (See "Module definitions" below.)
+
+Notes from Lucas:
+	This folder is used for subsections of your app.
+
+	Create a folder for each subsection
+	  > Each folder can include module, controller, html, and/or css
+	  > Each module and controller should be accompanied with a test
+	  
+Example:
+
+	subsection1/ -- subsection1 has a module and controller with tests
+		subsection1.js
+		subsection1-controller.js
+		subsection1-controller_test.js
+		subsection1_test.js                         
+		subsection1-1/ -- subsection1-1 has html, css, module and controller with tests
+				subsection1-1.css
+				subsection1-1.html
+				subsection1-1.js
+				subsection1-1-controller.js
+				subsection1-1-controller_test.js
+		subsection1-2/                        
+	subsection2/ -- subsection2 has html, css, module and controller with tests
+		subsection2.css
+		subsection2.html
+		subsection2.js
+		subsection2-controller.js
+		subsection2-controller_test.js
+	subsection3/
+		subsection3-1/
