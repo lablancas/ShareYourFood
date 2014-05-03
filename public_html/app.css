@@ -169,3 +169,8 @@ body {
     width: 700px;
   }
 }
+
+body {
+    background: url("images/Social-Eating-1.jpg") no-repeat fixed center;
+    background-size: 100%;
+}

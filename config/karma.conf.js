@@ -24,6 +24,11 @@ module.exports = function(config) {
             'karma-junit-reporter',
             'karma-chrome-launcher',
             'karma-jasmine'
-        ]
+        ],
+        
+        junitReporter: {
+          outputFile: 'test-results.xml',
+          suite: 'unit'
+        }
     });
 };
