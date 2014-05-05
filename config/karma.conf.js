@@ -1,34 +1,83 @@
-/* 
- * Developed by Lucas Blancas
- * Twitter: @LucasBlancas
- * Gmail: lablancas@gmail.com
- */
+// Karma configuration
+// Generated on Sat May 03 2014 02:32:16 GMT-0500 (Central Daylight Time)
 
 module.exports = function(config) {
-    config.set({
-        basePath: '../',
-        files: [
-            '**/*.js'
-        ],
-        exclude: [
-        ],
-        autoWatch: true,
-        frameworks: [
-            'jasmine'
-        ],
-        browsers: [
-            "Chrome"
-        ],
-        plugins: [
-            'karma-script-launcher',
-            'karma-junit-reporter',
-            'karma-chrome-launcher',
-            'karma-jasmine'
-        ],
-        
-        junitReporter: {
-          outputFile: 'test-results.xml',
-          suite: 'unit'
-        }
-    });
+  config.set({
+
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: '../',
+
+
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine'],
+
+
+    // list of files / patterns to load in the browser
+    files: [
+      {pattern: 'config/karma.conf.js', included: false},
+      'public_html/components/lib/jquery/dist/jquery.js',
+      'public_html/components/lib/bootstrap/dist/js/bootstrap.js',
+      'public_html/components/lib/angular/angular.js',
+      'public_html/components/lib/angular-route/angular-route.js',
+      'public_html/components/lib/angular-resource/angular-resource.js', 
+      'public_html/components/lib/angular-mocks/angular-mocks.js',
+      'public_html/*.js',
+      'public_html/blog/*.js',
+      'public_html/notification/*.js',
+      'public_html/components/notification/*.js',
+      'test/unit/**/*test.js'
+    ],
+
+
+    // list of files to exclude
+    exclude: [
+    ],
+
+
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+    
+    },
+
+
+    // test results reporter to use
+    // possible values: 'dots', 'progress'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['progress', 'junit'],
+
+
+    // web server port
+    port: 9876,
+
+
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
+
+
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
+
+
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: true,
+
+
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['Chrome'],
+
+
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: false,
+    
+    // Junit Reporter Configuration (defaults)
+    junitReporter: {
+      outputFile: 'test/unit-test-results.xml',
+      suite: 'unit'
+    }
+  });
 };
