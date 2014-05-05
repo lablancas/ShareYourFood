@@ -6,8 +6,5 @@
 
 angular.module('notification.services',['ngResource'])
         .factory('Notification', ['$resource', function($resource) {
-            return $resource('notification/:emailId.json', {}, {
-                query: {method:'GET', params:{emailId:'emails'}, isArray:true},
-                save: {method:'PUT', params:{emailId:'emails'}}
-            });
+            return $resource('http://localhost:9090/api/notification/:email', {email:'@email'});
 }]);
