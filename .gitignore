@@ -217,5 +217,8 @@ pip-log.txt
 #NetBeans Project Private
 nbproject/private/
 
+#Node Modules
+node_modules/
+
 #Components Library
 public_html/components/lib/
