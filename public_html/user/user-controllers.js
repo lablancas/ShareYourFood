@@ -4,18 +4,18 @@
  * Gmail: lablancas@gmail.com
  */
 
-angular.module('notification.controllers', ['notification.services'])
-        .controller('NotificationController', ['$scope', 'Notification', function($scope, Notification) {
+angular.module('user.controllers', ['user.services'])
+        .controller('UserController', ['$scope', 'User', function($scope, User) {
                 // initialize
-                $scope.notification = Notification.get({"email": "-"}); // get empty Notification resource object
+                $scope.user = User.get({"email": "-"}); // get empty User resource object
                 
                 $scope.isValidEmailFormat = function(){
-                    return /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test($scope.notification.email);
+                    return /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test($scope.user.email);
                 };
 
                 $scope.isSubscribed = function(callbackTrue, callbackFalse){
-                    Notification.get({"email": $scope.notification.email}, function(v){
-                        if(v.email !== undefined && v.email === $scope.notification.email) callbackTrue();
+                    User.get({"email": $scope.user.email}, function(v){
+                        if(v.email !== undefined && v.email === $scope.user.email) callbackTrue();
                         else callbackFalse();
                     });
                 };
@@ -30,7 +30,7 @@ angular.module('notification.controllers', ['notification.services'])
                         $scope.isSubscribed(
                         // call this function if email is subscribed
                         function(){
-                            $scope.notification.$delete(
+                            $scope.user.$delete(
                             function(){
                                 $scope.subscribed = false;
                                 $scope.status = "success";
@@ -59,7 +59,7 @@ angular.module('notification.controllers', ['notification.services'])
                         function(){
                             $scope.subscribed = true;
                             $scope.status = "info";
-                            $scope.message = "Thank you. You were already subscribed for notifications";
+                            $scope.message = "Thank you. You were already subscribed for users";
                         },
 
                         // call this function if email is NOT subscribed
@@ -67,8 +67,8 @@ angular.module('notification.controllers', ['notification.services'])
                             $scope.status = "info";
                             $scope.message = "Sending your request...";
 
-                            //TODO call Notification service to add an email (on callback, update status)
-                            $scope.notification.$save(
+                            //TODO call User service to add an email (on callback, update status)
+                            $scope.user.$save(
                             function(){
                                 $scope.subscribed = true;
                                 $scope.status = "success";

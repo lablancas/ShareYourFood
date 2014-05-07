@@ -4,7 +4,7 @@
  * Gmail: lablancas@gmail.com
  */
 
-angular.module('shareyourfood', ['ngRoute', 'notification.controllers', 'blog.controllers'])
+angular.module('shareyourfood', ['ngRoute', 'user.controllers', 'blog.controllers'])
         .config(['$routeProvider',
             function($routeProvider) {
               $routeProvider.
@@ -13,8 +13,8 @@ angular.module('shareyourfood', ['ngRoute', 'notification.controllers', 'blog.co
                   controller: 'BlogController'
                 }).
                 when('/', {
-                  templateUrl: 'notification/notification.html',
-                  controller: 'NotificationController'
+                  templateUrl: 'user/user.html',
+                  controller: 'UserController'
                 }).
                 otherwise({
                   redirectTo: '/'
