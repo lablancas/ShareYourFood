@@ -1,0 +1,9 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Developed by Lucas Blancas
+${licensePrefix}Twitter: @LucasBlancas
+${licensePrefix}Gmail: lablancas@gmail.com
+<#if licenseLast??>
+${licenseLast}
+</#if>
