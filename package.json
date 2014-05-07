@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "author": "Lucas Blancas <lablancas@gmail.com>",
     "description": "Sharing food is about to become much more fun",
+    "main": "server.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/lablancas/ShareYourFood.git"
@@ -12,7 +13,12 @@
         "node-jquery": "0.1.x",
         "jsdom": "0.10.x",
         "morgan": "1.0.x",
-        "mongodb": "1.4.x"
+        "mongodb": "1.4.x",
+        "mongoose": "3.8.x",
+        "express-session": "1.0.x",
+        "cookie-parser": "1.0.x",
+        "connect-mongo": "0.4.x",
+        "errorhandler": "1.0.x"
     },
     "devDependencies": {
         "karma": "0.12.x",
@@ -21,7 +27,8 @@
         "protractor": "0.20.x",
         "http-server": "^0.6.x",
         "bower": "^1.3.x",
-        "karma-junit-reporter": "0.2.x"
+        "karma-junit-reporter": "0.2.x", 
+        "debug": "0.8.x"
     },
     "scripts": {
         "postinstall": "bower install",
