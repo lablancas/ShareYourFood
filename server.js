@@ -4,45 +4,41 @@
  * and open the template in the editor.
  */
 
-//import required libraries
-var express = require('express'), 
-    notification = require('./server/notification');
+var express = require('express'),
+        session = require('express-session'),
+        MongoStore = require('connect-mongo')(session),
+        app = express();
 
-//configure app
-var app = express();
-//app.use(require('body-parser')());
-//app.use(require('cookie-parser')());
-//app.use(require('express-session')({ secret: 'keyboard cat', key: 'sid', cookie: { secure: false }})); // secure: true requires HTTPS
-//app.use(require('method-override')());
-app.use(require('morgan')('dev')); // add logging using morgan
-app.use(express.static(__dirname + '/public_html')); // static content
+var setting = {
+    host : "localhost",
+    port : "27017",
+    db : "shareyourfood"
+};
 
-// CORS support for all routes
-app.all('*', function(req, res, next){
-  if (!req.get('Origin')) return next();
-  // use "*" here to accept any origin
-  res.set('Access-Control-Allow-Origin', '*'); // http://localhost:3000
-  res.set('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
-  res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');
-  // res.set('Access-Control-Allow-Max-Age', 3600);
-  if ('OPTIONS' === req.method) return res.send(200);
-  next();
-});
+// conect to mongodb and startup express app
+require('mongoose').connect(setting.host, setting.db, setting.port, function(err, database) {
+    if(err) throw err;
+    
+    app.use(require('morgan')('dev')); // add logging using morgan
+    
+    app.use(require('cookie-parser')());// required before session.
+    
+    app.use(session(
+            { secret: 'this is no secret', 
+              cookie: { secure: false },
+              store:  new MongoStore({ db: setting.db, host: setting.host, port: setting.port })
+            }
+    ));
+    
+    app.use(express.static(__dirname + '/public_html')); // static content
+    
+    app.use(require('./server/cors/cors-controller').cors);// CORS support for all routes
+    require('./server/user/user-routes')(app);// user routes
+    
+    app.use(require('errorhandler')()); // add error handler
 
-// routing
-app.route("/api/notification/:email?")
-        .get(notification.get)
-        .post(notification.post)
-        .delete(notification.delete);
-
-// Initialize connection once
-require('mongodb').connect("mongodb://localhost:27017/shareyourfood", function(err, database) {
-  if(err) throw err;
-
-  db = database;
-
-  // Start the application after the database connection is ready
-  app.listen(9090, function() {
-    console.log('Listening on port %d', server.address().port);
-  });
+    var server =  app.listen(9090, function() {
+        console.log('Listening on port %d', server.address().port);
+    });
+    
 });
