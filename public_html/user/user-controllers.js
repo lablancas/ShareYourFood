@@ -15,7 +15,10 @@ angular.module('user.controllers', ['user.services'])
 
                 $scope.isSubscribed = function(callbackTrue, callbackFalse){
                     User.get({"email": $scope.user.email}, function(v){
-                        if(v.email !== undefined && v.email === $scope.user.email) callbackTrue();
+                        if(v.email !== undefined && v.email === $scope.user.email) {
+                            $scope.user = v;
+                            callbackTrue();
+                        }
                         else callbackFalse();
                     });
                 };
@@ -80,6 +83,10 @@ angular.module('user.controllers', ['user.services'])
                                 $scope.message = "Sorry. We had an issues performing your request. Please try again.";
                             });
                         });
+                    }else{
+                            $scope.subscribed = false;
+                            $scope.status = "warn";
+                            $scope.message = "Sorry. This is not a valid email format";
                     }
                 };
                 

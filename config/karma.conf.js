@@ -7,7 +7,6 @@ module.exports = function(config) {
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '../',
 
-
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
@@ -24,8 +23,8 @@ module.exports = function(config) {
       'public_html/components/lib/angular-mocks/angular-mocks.js',
       'public_html/*.js',
       'public_html/blog/*.js',
-      'public_html/notification/*.js',
-      'public_html/components/notification/*.js',
+      'public_html/user/*.js',
+      'public_html/components/user/*.js',
       'test/unit/**/*test.js'
     ],
 
