@@ -222,3 +222,6 @@ node_modules/
 
 #Components Library
 public_html/components/lib/
+
+# Test results
+test/*test-results.xml
